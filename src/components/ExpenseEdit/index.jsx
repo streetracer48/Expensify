@@ -1,11 +1,13 @@
 import React from 'react'
 
-const ExpenseDashboard = () => {
+const ExpenseEdit = (props) => {
+  console.log(props);
   return (
     <div>
-        <h1>ExpenseDashboard</h1>
+        <h1>ExpenseEdit</h1>
+        <h2>id{props.match.params.id}</h2>
       
     </div>
   )
 }
-export default ExpenseDashboard
+export default ExpenseEdit

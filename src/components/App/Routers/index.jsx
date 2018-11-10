@@ -12,12 +12,11 @@ import Navbar from '../../Navbar'
         return (
             <div>              
                 <Navbar/>
-
                 <Container className="main">
                 <Switch>
                 <Route exact path='/' component={ExpenseDashboard} exact={true} />
                 <Route path='/create' component={AddExpense} />
-                <Route path='/edit' component={ExpenseEdit} />
+                <Route path='/edit/:id' component={ExpenseEdit} />
                 <Route path='/help' component={Help} />
                  <Route  component={NotFound} />
                 </Switch>  
