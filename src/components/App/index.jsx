@@ -20,6 +20,12 @@ const Admin = () => (
     <h1>This is Admin</h1>
 </div>
 )
+
+const NotFound = () => (
+    <div>
+    <h1>This is 404!</h1>
+</div>
+)
     
 
 
@@ -32,14 +38,22 @@ const Admin = () => (
               {/* <ModalManager/> */}
             <Switch>
             <Route exact path='/' component={Home} />
+            
             </Switch>
             <Route path="/(.+)"
             render={() => (
               <div>
                 {/* <NavBar/> */}
+
                 <Container className="main">
-                  <Route path='/about' component={About} />
+                <Switch>
+                <Route path='/about' component={About} />
                   <Route path='/admin' component={Admin} />
+                  <Route  component={NotFound} />
+                </Switch>
+                  
+                  
+                  
                 </Container>
             </div>
             )}
