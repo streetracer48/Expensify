@@ -7,6 +7,7 @@ import ExpenseEdit from '../../ExpenseEdit'
 import Help from '../../Help'
 import NotFound from '../../NotFound'
 import Navbar from '../../Navbar'
+import PlayGround from '../../playGround/Redux-ex'
  class AppRoutes extends Component {
     render() {
         return (
@@ -18,6 +19,7 @@ import Navbar from '../../Navbar'
                 <Route path='/create' component={AddExpense} />
                 <Route path='/edit/:id' component={ExpenseEdit} />
                 <Route path='/help' component={Help} />
+                <Route path='/playground/redux' component={PlayGround} />
                  <Route  component={NotFound} />
                 </Switch>  
                 </Container>
