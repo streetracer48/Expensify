@@ -23,7 +23,7 @@ const Admin = () => (
 
 const NotFound = () => (
     <div>
-    <h1>This is 404!</h1>
+    <h1>This is 404! </h1><Link to="/">Go Back Home</Link>
 </div>
 )
     
