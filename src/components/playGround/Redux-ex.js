@@ -26,13 +26,15 @@ const store = createStore((state = {count:45}, action) => {
 //walk, stop_walking, sit, work, stop_working
 //I'd like to increment the count
 
-store.subscribe(() => {
+const unsubscribess = store.subscribe(() => {
     console.log(store.getState());
 })
 
 store.dispatch({
     type:'INCREMENT'
 })
+
+unsubscribess();
 
 store.dispatch({
     type:'DECREMENT'
