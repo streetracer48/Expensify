@@ -18,7 +18,7 @@ const store = createStore((state = {count:45}, action) => {
        };
        default:
        return state;
-    }
+    } 
 });
 
 const person = {
@@ -32,6 +32,7 @@ const person = {
 
 const {name, age} = person;
 console.log('person', name)
+console.log(`it's${person.location.temp}`);
 
 //actions - than an object that gets sent to the store
 
