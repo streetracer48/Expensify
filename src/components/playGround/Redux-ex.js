@@ -4,6 +4,7 @@ const store = createStore((state = {count:45}, action) => {
 
     switch(action.type) {
        case 'INCREMENT':
+       const incrementBy= typeof action.incrementBy === 'number'? action.incrementBy:1;
        return {
            count: state.count +1 
        };
@@ -20,6 +21,18 @@ const store = createStore((state = {count:45}, action) => {
     }
 });
 
+const person = {
+    name:'miraz',
+    age:26,
+    location:{
+        city:'dhaka bangladesh',
+        temp:92
+    }
+};
+
+const {name, age} = person;
+console.log('person', name)
+
 //actions - than an object that gets sent to the store
 
 //increment, decrement, reset
@@ -27,11 +40,13 @@ const store = createStore((state = {count:45}, action) => {
 //I'd like to increment the count
 
 const unsubscribess = store.subscribe(() => {
-    console.log(store.getState());
+    // console.log(store.getState());
 })
 
 store.dispatch({
-    type:'INCREMENT'
+    type:'INCREMENT',
+    incrementBy:5
+
 })
 
 unsubscribess();
