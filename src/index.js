@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom'
+import ConfigStore from '../src/store/configStore'
 import App from './components/App/';
 import * as serviceWorker from './serviceWorker';
+
+
+const store = ConfigStore();
+
+console.log(store.getState())
 
 ReactDOM.render(
 <BrowserRouter><App/></BrowserRouter>, document.getElementById('root'));
