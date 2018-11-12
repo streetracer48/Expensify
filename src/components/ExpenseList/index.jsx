@@ -1,11 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import ExpenseListItem from './ExpenseListItem/'
 
 const ExpensesList =(props) =>  (
      <div>
           <h1>Expenses List</h1>
-          {props.filters.text}
-          {props.expenses.length}
+          {props.expenses.map((expense) => {
+              return <ExpenseListItem {...expense}/>
+          })}
      </div>
 )
 
