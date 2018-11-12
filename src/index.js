@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom'
+import {Provider} from 'react-redux'
 import ConfigStore from '../src/store/configStore'
 import {addExpense} from './actions/expenses'
 import {setTextFilter} from './actions/filter'
@@ -22,10 +23,20 @@ const state = store.getState();
 const visibleExpenses = getVisibleExpense(state.expenses, state.filters)
 
 
-console.log(visibleExpenses)
+// console.log(visibleExpenses)
+
+const jsx = (
+    <BrowserRouter> 
+    <Provider store={store}>
+     <App/>
+    </Provider>
+    </BrowserRouter>
+   
+);
+
 
 ReactDOM.render(
-<BrowserRouter><App/></BrowserRouter>, document.getElementById('root'));
+jsx, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
