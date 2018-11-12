@@ -2,13 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom'
 import ConfigStore from '../src/store/configStore'
+import {addExpense} from './actions/expenses'
+import {setTextFilter} from './actions/filter'
+import getVisibleExpense from './selector/index'
 import App from './components/App/';
 import * as serviceWorker from './serviceWorker';
 
 
 const store = ConfigStore();
 
-console.log(store.getState())
+//testing all actions working
+
+store.dispatch(addExpense({description:'water Bill'}))
+store.dispatch(addExpense({description:'Gas Bill'}))
+store.dispatch(setTextFilter('bill'))
+
+const state = store.getState();
+
+const visibleExpenses = getVisibleExpense(state.expenses, state.filters)
+
+
+console.log(visibleExpenses)
 
 ReactDOM.render(
 <BrowserRouter><App/></BrowserRouter>, document.getElementById('root'));
