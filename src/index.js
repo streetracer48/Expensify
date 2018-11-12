@@ -14,12 +14,12 @@ const store = ConfigStore();
 
 //testing all actions working
 
-store.dispatch(addExpense({description:'water Bill'}))
+store.dispatch(addExpense({description:'water Bill', amount :'4000'}))
 store.dispatch(addExpense({description:'Gas Bill'}))
-store.dispatch(setTextFilter('bill'))
+store.dispatch(setTextFilter('water bill'))
 
 setTimeout(() => {
-    store.dispatch(setTextFilter('Rent Bill'))
+    store.dispatch(setTextFilter('bill'))
 }, 3000)
 
 const state = store.getState();
