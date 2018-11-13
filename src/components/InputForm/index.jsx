@@ -3,18 +3,47 @@ import React, {Component} from 'react'
 class InputForm extends Component {
 
     state = {
-        descriptions:''
+        descriptions:'',
+        note:'',
+        number:''
     }
 
 
-    onChangeData = (e) => {
+    onChangeDiscriptions = (e) => {
         const descriptions = e.target.value;
         this.setState ({
             descriptions
         })
 
     }
+    
+    onChangeNumber = (e) => {
+        const number = e.target.value;
+        this.setState ({
+            number
+        })
 
+    }
+
+    onChangeNote = (e) => {
+        const note = e.target.value;
+        this.setState ({
+            note
+        })
+
+    }
+
+    onChangeAmount = (e) => {
+        const amount = e.target.value;
+        if (amount.match(/^\d*(\.\d{0,2})?$/)) {
+            this.setState ({
+            amount
+            })
+
+        }
+      
+
+    }
 
      render () {
           return ( 
@@ -24,7 +53,7 @@ class InputForm extends Component {
                   type="text"
                   placeholder="Dscriptions"
                   value={this.state.descriptions}
-                  onChange={this.onChangeData}
+                  onChange={this.onChangeDiscriptions}
                   autoFocus
                   />
                   <br/>
@@ -32,11 +61,15 @@ class InputForm extends Component {
                   <input
                   type="number"
                   placeholder="Amount"
+                  value={this.state.amount}
+                  onChange={this.onChangeAmount}
                   />
                   <br/>
                   <br/>
                 <textarea
                   placeholder="Add a note for your expense"
+                  value={this.state.note}
+                  onChange={this.onChangeNote}
                   />
                   <br/>
                   <br/>
