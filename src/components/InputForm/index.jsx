@@ -1,12 +1,24 @@
 import React, {Component} from 'react'
+import moment from 'moment'
+import {SingleDatePicker} from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+import 'react-dates/initialize'
+
+
+const now = moment();
+
+console.log(now.format())
 
 class InputForm extends Component {
 
     state = {
         descriptions:'',
         note:'',
-        number:''
-    }
+        number:'',
+        createdAt:moment(),
+        calendarFocused: false
+    };
+ 
 
 
     onChangeDiscriptions = (e) => {
@@ -45,6 +57,19 @@ class InputForm extends Component {
 
     }
 
+
+    onDateChange = (createdAt) => {
+         this.setState({
+             createdAt
+         }) 
+    }
+
+
+    onFocusChange = ({ focused }) => {
+        this.setState(() => ({ calendarFocused: focused }));
+      };  // PropTypes.func.isRequired
+
+
      render () {
           return ( 
               <div> 
@@ -66,6 +91,17 @@ class InputForm extends Component {
                   />
                   <br/>
                   <br/>
+                  <SingleDatePicker
+  date={this.state.createdAt} // momentPropTypes.momentObj or null
+  onDateChange={this.onDateChange} // PropTypes.func.isRequired
+  focused={this.state.calendarFocused} // PropTypes.bool
+  onFocusChange={this.onFocusChange}// PropTypes.func.isRequired
+  numberOfMonths={1}
+  isOutsideRange={() => false}
+
+/>
+<br/>
+<br/>
                 <textarea
                   placeholder="Add a note for your expense"
                   value={this.state.note}
