@@ -10,7 +10,7 @@
 <img src="src/assets/expensify.png" width="800" height="400">
 
 - `Expensify editing`
-<img src="client/assets/expensify2.png" width="800" height="400">
+<img src="src/assets/expensify2.png" width="800" height="400">
 
 ## Following technologies are used
 
