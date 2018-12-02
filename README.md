@@ -2,7 +2,7 @@
 
 ## About
 
- `this is  my learning based project done 50% work, this is shopping site where people can  order products from online `
+ `this is  my learning based project done 90% work, this is expense store where people can note their expense and search `
  
 
 ## Feature
